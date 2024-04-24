@@ -6,7 +6,7 @@
 /*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 19:24:15 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/23 18:48:18 by jperpect         ###   ########.fr       */
+/*   Updated: 2024/04/24 09:54:02 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 static char **alloc_p(int n,int id,char **ren)
 {
     int i;
+	
     i =0;
-    ren[id] =  malloc((n +1) * sizeof(char )  );
+
+		ren[id] =  malloc((n +1) * sizeof(char )  );
     if(ren[id] == NULL){
          while(i < id)
         {
@@ -25,8 +27,9 @@ static char **alloc_p(int n,int id,char **ren)
 			}
 			free(ren);
         return NULL;
-        }
+        
     ft_bzero(ren[id], n + 1);
+}
     return(ren);
 }
 static int conta(char const *s,char c)
@@ -39,6 +42,7 @@ static int conta(char const *s,char c)
      n_p=-1;
     while(s[i] != '\0')
     {        
+
         if (s[i] == c && (s[i+1] != c && s[i+1] != '\0'))
         {
             n_p++;
@@ -47,7 +51,7 @@ static int conta(char const *s,char c)
     }
     return(n_p);
 }
-static char **conta_len(char const *s,char c,char **ren)
+static void conta_len(char const *s,char c,char **ren)
 {
     int i;
     int n_p;
@@ -61,22 +65,23 @@ static char **conta_len(char const *s,char c,char **ren)
     while(s[i] != '\0')
     {        
         if (s[i] != c)
-        {
-            len++;
-        } else if (s[i] == c && (s[i+1] != c && s[i+1] != '\0'))
-        {   if(len != 0)
-             if(alloc_p(len,n_p,ren) == NULL)
-             return(NULL); 
+		len++;
+		else if (s[i] == c && (s[i+1] != c && s[i+1] != '\0'))
+        {   
+			if(len != 0)
+              alloc_p(len,n_p,ren);
+            
             n_p++;
             len = 0;
         }
         i++;
     } 
-    return (alloc_p(len,n_p,ren));
+	
+     alloc_p(len,n_p,ren);
 }
 static void creiate(char const *s,char c,char **ren)
 {
-     int i;
+    int i;
     int n_p;
     int len;
     
@@ -108,25 +113,27 @@ char **ft_split(char const *s, char c)
     int n_p;
     char **ren;
 	 n_p = conta(s,c) + 1 ;
-	
-	 
+	 int i;
+	 i = 0;
+	  
 	if (0 >= conta(s,c) && ft_strlen(s) == 0)
-	{
 		n_p = 0;
-	}
-
     ren =  (char **)malloc((n_p +1 )* sizeof(char *));
     if (ren == NULL)
         return(NULL);
-    ren[n_p] = 0;
+ 
+    ren[n_p] = NULL;
+    if(n_p +1  == 1)
+     return(ren);
+	
     free(ren[n_p]);
-    if (ft_strlen(s) != 0 )
+    if (ft_strlen(s) != 0)
 	{
-    conta_len(s,c,ren);
-    
+    conta_len(s,c,ren) ;
+	
     creiate(s,c,ren);
-    
 	}
+	
     return(ren);
 }
 
@@ -156,11 +163,11 @@ char **ft_split(char const *s, char c)
 //   //      free(*str++);
 //    // }
 //    // free(**str);
-//     str = ft_split("aaaaaaaaaaaaaaaaaaaaa", 'a');
+//     str = ft_split("   ", ' ');
 //     int i = 0;
     
-//     while(str[i] != NULL )
-//     {
+// 	 while(str[i] != NULL )
+//      {
         
         
 //         //ft_putnbr_fd(ft_strlen(str[i]) +1,1);

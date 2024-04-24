@@ -13,5 +13,7 @@ int main(int ca,char **av)
 {
     char *ok = ft_substr(av[1],1,10);
     ft_putstr_fd(ok,1);
+   
+   
     free(ok);
 }*/
