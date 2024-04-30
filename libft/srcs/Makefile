@@ -13,7 +13,7 @@ SRCS = ft_atoi.c ft_isdigit.c   ft_memmove.c      ft_split.c         ft_strlcat.
 
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-		ft_lstlast.c ft_lstadd_back.c \
+		ft_lstlast.c ft_lstadd_back.c  ft_lstdelone.c \
 
 
 
@@ -41,12 +41,12 @@ bonus: $(OBJECT_B)
 	cc $(FLGS) -c -o $@ $<
 
 clean:
-	$(RM)  $(OBJECT) $(OBJS_B)
+	$(RM)  $(OBJECT) 
 
 
 
 fclean:
-	$(RM) $(NAME) $(BONUS)
+	$(RM) $(NAME) 
 
 re:
 	clean all

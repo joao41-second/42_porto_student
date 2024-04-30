@@ -113,9 +113,7 @@ char **ft_split(char const *s, char c)
     int n_p;
     char **ren;
 	 n_p = conta(s,c) + 1 ;
-	 int i;
-	 i = 0;
-	  
+
 	if (0 >= conta(s,c) && ft_strlen(s) == 0)
 		n_p = 0;
     ren =  (char **)malloc((n_p +1 )* sizeof(char *));

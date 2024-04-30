@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:29:07 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/19 22:16:35 by jperpect         ###   ########.fr       */
+/*   Updated: 2024/04/26 19:54:40 by joao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static char	*nuber(int cont, int r, char *ret)
 
 static int	conta(int n, int cont)
 {
+	if (n == 0)
+		return(1);
 	while (n > 0)
 	{
 		cont++;
@@ -43,7 +45,7 @@ char	*ft_itoa(int n)
 	int		cont;
 	int		neg;
 	char	*ret;
-
+	neg = 0;
 	if (n < 0)
 	{
 		cont = 0;
@@ -53,7 +55,9 @@ char	*ft_itoa(int n)
 	else
 		cont = -1;
 	cont = conta(n, cont);
-	ret = ft_calloc(cont, sizeof(char));
+	ft_putnbr_fd(cont+1+neg,1);
+	ft_putchar_fd('\n',1);
+	ret = ft_calloc(cont+1+neg, sizeof(char));
 	if (ret == NULL)
 		return (NULL);
 	ret = nuber(cont, n, ret);
@@ -65,8 +69,8 @@ char	*ft_itoa(int n)
 	}
 	return (ret);
 }
-/*
+
 int	main(int ac, char **av)
 {
-	print(ft_itoa(ft_atoi(av[1])));
-}*/
+	ft_putstr_fd( ft_itoa(ft_atoi(av[1])),1);
+}

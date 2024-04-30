@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:17:49 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/16 17:00:56 by jperpect         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:14:50 by joao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char *ft_strjoin(char const *s1, char const *s2)
     if (str != NULL)
     {
     ft_strlcat(str,s1,ft_strlen(s1)+1);
-    ft_strlcat(str,s2,ft_strlen(s2)+ft_strlen(s2));
+    ft_strlcat(str,s2,ft_strlen(s1)+ft_strlen(s2)+1);
     }
     return (str);
 }

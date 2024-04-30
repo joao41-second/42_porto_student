@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 14:07:57 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/26 10:14:15 by joao             ###   ########.fr       */
+/*   Created: 2024/04/26 10:02:14 by joao              #+#    #+#             */
+/*   Updated: 2024/04/26 10:38:41 by joao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_list *ok;
-	if (lst == NULL || new == NULL )
-		return;
-
-	if (*lst  == NULL)
-	{
-		*lst = new;
-		return;
-	}
-
-	ok = *lst;
-
-	ok = ft_lstlast(ok);
-
-	ok -> next= new;
+    if(!del)
+        return;
+    if(lst)
+    {
+        (*del)(lst->content);
+        free(lst);
+    }
+    
 }
 
-
 /*
+static void liber(void *ok)
+{
+    free(ok);
+}
+
 int main(int ac,char **av)
 {
 	t_list *oa = ft_lstnew(av[1]);
@@ -53,11 +50,13 @@ int main(int ac,char **av)
 	//ft_putstr_fd((char *)ft_lstlast(oa) ->content,1);
 	ft_putchar_fd('\n',1);
 	
-	
+	ft_lstdelone(oa -> next ,liber);
+
 	while( oa != NULL)
 	{
 		ft_putchar_fd('\n',1);
 		ft_putstr_fd(oa->content,1);
 		oa = oa-> next;
 	}
-}/*/
+    free(oa);
+}*/

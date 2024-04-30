@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include <strings.h>
 #include <string.h>
-#include <bsd/string.h>
+//#include <bsd/string.h>
 
 
 void print (char *str);

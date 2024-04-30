@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 17:40:14 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/15 17:42:00 by jperpect         ###   ########.fr       */
+/*   Updated: 2024/04/26 11:09:13 by joao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 static int	while_return(const char *big, const char *little, size_t save)
 {
@@ -37,6 +38,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	set;
 	char	*ok;
+	
+	if(!little[0])
+		return((char *)big);
 
 	i = 0;
 	while (i < len && big[i] != '\0')
@@ -57,6 +61,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 /*
 int main(int ac, char **av)
 {
-	printf("%s\n", strnstr(av[1], av[2], 10));
-	printf("%s", ft_strnstr(av[1], av[2], 10));
+	 char *ok = strnstr(av[1], av[2], 0);
+	 printf("%s/n",ok );
+	//printf("%s\n", strnstr(av[1], av[2], 0));
+	printf("%s", ft_strnstr(av[1], av[2], 0));
 }*/
