@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	while( lst != NULL)
+	while (lst != NULL)
 	{
 		i++;
-		lst = lst-> next;
+		lst = lst->next;
 	}
 	return (i);
-
 }
 // int main(int ac,char **av)
 // {
@@ -35,14 +35,13 @@ int ft_lstsize(t_list *lst)
 // 	ft_lstadd_front(&oa,oc);
 // 	ft_lstadd_front(&oa,od);
 
-	
 // 	ft_putnbr_fd(ft_lstsize((oa)),1);
-	
+
 // 	while( oa != NULL)
 // 	{
 // 		ft_putchar_fd('\n',1);
 // 		ft_putstr_fd(oa->content,1);
 // 		oa = oa-> next;
 // 	}
-	
+
 // }

@@ -12,19 +12,16 @@
 
 #include "libft.h"
 
-
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	while(lst != NULL)
+	while (lst != NULL)
 	{
 		if (lst->next == NULL)
-	 	 return(lst);
-	    lst = lst->next; 
+			return (lst);
+		lst = lst->next;
 	}
-	return(0);
+	return (0);
 }
-
-
 
 // int main(int ac,char **av)
 // {
@@ -37,12 +34,10 @@ t_list *ft_lstlast(t_list *lst)
 // 	ft_lstadd_front(&oa,oc);
 // 	ft_lstadd_front(&oa,od);
 
-	
 // 	ft_putnbr_fd(ft_lstsize((oa)),1);
 // 	ft_putchar_fd('\n',1);
 // 	ft_putstr_fd((char *)ft_lstlast(oa) ->content,1);
-	
-	
+
 // 	while( oa != NULL)
 // 	{
 // 		ft_putchar_fd('\n',1);

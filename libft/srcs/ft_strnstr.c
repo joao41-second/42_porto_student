@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 static int	while_return(const char *big, const char *little, size_t save)
 {
 	size_t	id;
@@ -38,10 +37,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	set;
 	char	*ok;
-	
-	if(!little[0])
-		return((char *)big);
 
+	if (!little[0])
+		return ((char *)big);
 	i = 0;
 	while (i < len && big[i] != '\0')
 	{
@@ -59,10 +57,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 /*
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	 char *ok = strnstr(av[1], av[2], 0);
-	 printf("%s/n",ok );
+		char *ok = strnstr(av[1], av[2], 0);
+		printf("%s/n",ok );
 	//printf("%s\n", strnstr(av[1], av[2], 0));
 	printf("%s", ft_strnstr(av[1], av[2], 0));
 }*/

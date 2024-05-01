@@ -12,18 +12,19 @@
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t a;
+	size_t	a;
+
 	a = 0;
-	while( s[a] != '\0')
+	while (s[a] != '\0')
 	{
-	 a++;
+		a++;
 	}
-	return a;
+	return (a);
 }
 /*
-int main(int argc ,char **argv)
+int	main(int argc ,char **argv)
 {
 	printf("%zu", ft_strlen(argv[1]), "/n" );
 	printf("%zu", strlen(argv[1]) );

@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 14:07:57 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/26 10:14:15 by joao             ###   ########.fr       */
+/*   Created: 2024/05/01 10:54:05 by jperpect          #+#    #+#             */
+/*   Updated: 2024/05/01 14:30:39 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*ok;
+	t_list	*ant;
 
-	if (lst == NULL || new == NULL)
+	if (!lst)
 		return ;
-	if (*lst == NULL)
+	while (*lst != NULL)
 	{
-		*lst = new;
-		return ;
+		ant = (*lst)->next;
+		ft_lstdelone(*lst, (*del));
+		*lst = ant;
 	}
-	ok = *lst;
-	ok = ft_lstlast(ok);
-	ok->next = new;
 }
 
 /*
-int	main(int ac,char **av)
+static void	liber(void *ok)
+{
+	ft_putstr_fd("funcao tem ",1);
+	ft_putstr_fd((char *)ok,1);
+}
+
+
+ int main(int ac,char **av)
 {
 	t_list *oa = ft_lstnew(av[1]);
 	t_list *ob = ft_lstnew(av[2]);
@@ -41,19 +46,24 @@ int	main(int ac,char **av)
 	ft_lstadd_back(&oa,od);
 
 	
-	ft_putnbr_fd(ft_lstsize((oa)),1);
-	ft_putchar_fd('\n',1);
-	ft_putstr_fd((char *)ft_lstlast(oa) ->content,1);
-	
-	ft_putchar_fd('\n',1);
+	//ft_putnbr_fd(ft_lstsize((oa)),1);
+	//ft_putchar_fd('\n',1);
 	//ft_putstr_fd((char *)ft_lstlast(oa) ->content,1);
-	ft_putchar_fd('\n',1);
 	
+	//ft_putchar_fd('\n',1);
+	//ft_putstr_fd((char *)ft_lstlast(oa) ->content,1);
+	//ft_putchar_fd('\n',1);
 	
-	while( oa != NULL)
+	//ft_lstdelone(oa  ,liber);
+	t_list *env  = oa-> next;
+	
+	ft_lstclear(&oa,liber);
+
+		while( oa != NULL)
 	{
 		ft_putchar_fd('\n',1);
 		ft_putstr_fd(oa->content,1);
 		oa = oa-> next;
-	}
-}/*/
+	} 
+    //free(oa);
+} */

@@ -17,12 +17,10 @@ static int	end_string(char const *s1, char const *set)
 	int	cont;
 	int	tras;
 
-	tras = ft_strlen(s1)-1;
+	tras = ft_strlen(s1) - 1;
 	cont = 0;
-	
 	while (set[cont] != '\0')
 	{
-		
 		while (s1[tras] == set[cont])
 		{
 			tras--;
@@ -40,7 +38,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	tras;
 
 	cont = 0;
-
 	conts = 0;
 	while (set[cont] != '\0')
 	{

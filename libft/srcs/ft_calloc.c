@@ -11,26 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-void *ft_calloc(size_t nmemb, size_t size)
+
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    void *ret;
-    ret = (void *)malloc(nmemb * size);
-    if (ret == NULL)
-    return NULL;
-    ft_bzero(ret,nmemb * size);
-    return(ret);
+	void	*ret;
+
+	ret = (void *)malloc(nmemb * size);
+	if (ret == NULL)
+		return (NULL);
+	ft_bzero(ret, nmemb * size);
+	return (ret);
 }
 
-// int main(void) 
+// int main(void)
 // {
 //     char *ok = ft_calloc(2147483647,45);
 
-//     printf("%s\n",ok); 
+//     printf("%s\n",ok);
 //     char *oks = calloc(2147483647,45);
 //     //ft_memset(oks,'a',10);
 
 //     printf("%s",oks);
-    
 
 // }
-

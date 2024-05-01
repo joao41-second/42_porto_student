@@ -10,36 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-  
-  size_t cont;
-  cont = 0;
-  
-  
-  if (size == 0 )
-  return(ft_strlen(src));
-  
-  while(src[cont] != '\0' && cont < (size -1))
-  {
-    dst[cont] = src[cont];
-    cont++;
-  }
+	size_t	cont;
 
-  if (cont < size)
+	cont = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[cont] != '\0' && cont < (size - 1))
+	{
+		dst[cont] = src[cont];
+		cont++;
+	}
+	if (cont < size)
 		dst[cont] = '\0';
 	while (src[cont] != '\0')
 		cont++;
-  
-  return(cont);
-  
+	return (cont);
 }
 
 /*
-int main(void)
+int	main(void)
 {
     char des[100];
     char *src = "primeiro";

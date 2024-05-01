@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-int ft_toupper(int c)
+
+int	ft_toupper(int c)
 {
-    if (c >= 'a' && c <= 'z')
-    c -=32;
-return(c);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }
 
 /*
-int main(int ac,char **av)
+int	main(int ac,char **av)
 {
 
     int a = ft_toupper(av[1][0]);

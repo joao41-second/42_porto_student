@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 10:02:14 by joao              #+#    #+#             */
-/*   Updated: 2024/04/26 10:38:41 by joao             ###   ########.fr       */
+/*   Updated: 2024/05/01 11:39:50 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if(!del)
-        return;
-    if(lst)
-    {
-        (*del)(lst->content);
-        free(lst);
-    }
-    
+	if (!del)
+		return ;
+	if (lst)
+	{
+		(*del)(lst->content);
+		free(lst);
+	}
 }
 
 /*
-static void liber(void *ok)
+static void	liber(void *ok)
 {
-    free(ok);
+	ft_putstr_fd("funcao tem ",1);
+	ft_putstr_fd((char *)ok,1);
 }
 
-int main(int ac,char **av)
+ int main(int ac,char **av)
 {
 	t_list *oa = ft_lstnew(av[1]);
 	t_list *ob = ft_lstnew(av[2]);
@@ -50,7 +50,7 @@ int main(int ac,char **av)
 	//ft_putstr_fd((char *)ft_lstlast(oa) ->content,1);
 	ft_putchar_fd('\n',1);
 	
-	ft_lstdelone(oa -> next ,liber);
+	ft_lstdelone(oa  ,liber);
 
 	while( oa != NULL)
 	{
@@ -59,4 +59,4 @@ int main(int ac,char **av)
 		oa = oa-> next;
 	}
     free(oa);
-}*/
+} */

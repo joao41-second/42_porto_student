@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:29:07 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/26 19:54:40 by joao             ###   ########.fr       */
+/*   Updated: 2024/04/30 13:27:42 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*nuber(int cont, int r, char *ret)
 static int	conta(int n, int cont)
 {
 	if (n == 0)
-		return(1);
+		return (1);
 	while (n > 0)
 	{
 		cont++;
@@ -40,37 +40,51 @@ static int	conta(int n, int cont)
 	return (cont);
 }
 
+static char	*lines(int n, char *ret, int neg, int cont)
+{
+	if (-(n) == -2147483648)
+	{
+		ft_strlcpy(ret, "-2147483648", 12);
+		return (ret);
+	}
+	ret = nuber(cont - 1, n, ret);
+	if (neg == 1)
+	{
+		ret[0] = '-';
+	}
+	return (ret);
+}
+
 char	*ft_itoa(int n)
 {
 	int		cont;
 	int		neg;
 	char	*ret;
+
+	cont = 0;
 	neg = 0;
 	if (n < 0)
 	{
-		cont = 0;
+		cont = 1;
+		if (n == -2147483648)
+			cont = 11;
 		n = -(n);
 		neg = 1;
 	}
-	else
-		cont = -1;
 	cont = conta(n, cont);
-	ft_putnbr_fd(cont+1+neg,1);
-	ft_putchar_fd('\n',1);
-	ret = ft_calloc(cont+1+neg, sizeof(char));
+	ret = (char *)malloc((cont + 1) * sizeof(char));
 	if (ret == NULL)
 		return (NULL);
-	ret = nuber(cont, n, ret);
-	if (neg == 1)
-	{
-		ret[0] = '-';
-		if (-(n) == -2147483648)
-			ret = "-2147483648";
-	}
-	return (ret);
+	ret[cont] = '\0';
+	if (cont == 1)
+		cont = 1;
+	return (lines(n, ret, neg, cont));
 }
 
-int	main(int ac, char **av)
-{
-	ft_putstr_fd( ft_itoa(ft_atoi(av[1])),1);
-}
+// int	main(int ac, char **av)
+// {
+// 	char *ok;
+// 	ok =ft_itoa(-2147483648);
+// 	printf("%s",ok);
+// 	free(ok);
+// }

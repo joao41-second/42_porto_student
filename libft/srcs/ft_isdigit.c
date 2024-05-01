@@ -9,15 +9,15 @@
 /*   Updated: 2024/04/10 12:49:55 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 #include <ctype.h>
+#include <unistd.h>
 
 int	ft_isdigit(int c)
 {
-	if( c >= '0' && c <= '9' )
-		return(1);
+	if (c >= '0' && c <= '9')
+		return (1);
 	else
-		return(0);
+		return (0);
 }
 /*
 int	main(int argc, char **argv)

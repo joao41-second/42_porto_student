@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao <joao@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:36:29 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/26 10:51:37 by joao             ###   ########.fr       */
+/*   Updated: 2024/05/01 13:10:59 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,46 +154,62 @@ void				ft_putnbr_fd(int n, int fd);
 * @param fd filed.
 */
 
-
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
 
-
-t_list *ft_lstnew(void *content);
+t_list				*ft_lstnew(void *content);
 /**
 * @brief creiate a new node .
 * @param content variavel content to new node. 
 * @return the new node to memory allocate.
 */
-void ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new);
 /**
 * @brief add new menber tu list in frist menber .
 * @param lst list existing. 
 * @param new elmente to list.
 */
-int ft_lstsize(t_list *lst);
+int					ft_lstsize(t_list *lst);
 /**
 * @brief count nuber to elementes to list
 * @param lst list in first elemnte
 * @return number of elementes 
 */
-t_list *ft_lstlast(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
 /**
 * @brief lacte to last node to list.
 * @param lst node in first elemente.
 * @return last node. 
 */
-void ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new);
 /**
 * @brief and menber to list to last menber 
 * @param lst list create after moment 
 * @param new elemente to list
 */
-void ft_lstdelone(t_list *lst, void (*del)(void*));
-
+void				ft_lstdelone(t_list *lst, void (*del)(void *));
+/**
+* @brief delet to menber to free
+* @param lst menber to list the del
+* @param funcion to excute ao del item 
+*/
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+/**
+* @brief clear and free list. 
+* @param lst list;
+* @param funcion to excute. 
+*/
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+/**
+* @brief aplay f in list.
+* @param lst list .
+* @param f funcion to aplicade.
+*/
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
 
 #endif
 
