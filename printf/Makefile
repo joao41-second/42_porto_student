@@ -5,7 +5,7 @@ NAME =libftprintf.a
 AR = ar rcs
 
 SRCS = ft_printf.c ft_printp.c ft_putnbr_base.c \
-ft_putstr_fd.c ft_putchar_fd.c ft_putnbr_fd.c ./libft/ft_strlen.c \
+ft_putstr_fd.c ft_putchar_fd.c ft_strlen.c \
  
 
 OBJECT = $(SRCS:.c=.o) 
