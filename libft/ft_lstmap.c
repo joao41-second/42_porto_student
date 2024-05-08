@@ -6,16 +6,11 @@
 /*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:12:09 by jperpect          #+#    #+#             */
-/*   Updated: 2024/05/01 15:26:20 by jperpect         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:37:34 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	lrs(void *ok)
-{
-	return ;
-}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

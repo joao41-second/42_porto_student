@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 12:17:02 by jperpect          #+#    #+#             */
-/*   Updated: 2024/04/16 12:37:19 by jperpect         ###   ########.fr       */
+/*   Created: 2024/05/03 06:14:43 by jperpect          #+#    #+#             */
+/*   Updated: 2024/05/03 06:16:13 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void *ft_calloc(size_t nmemb, size_t size)
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    void *ret;
-    ret = (void *)malloc(nmemb * size);
-    if (ret == NULL)
-    return NULL;
-    ft_bzero(ret,nmemb);
-    return(ret);
+	char	*str;
+
+	str = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
+	if (str != NULL)
+	{
+		ft_strlcat(str, s1, ft_strlen(s1) + 1);
+		ft_strlcat(str, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	}
+	return (str);
 }
 /*
-int main(void) 
+int	main(int ca,char **av)
 {
-    char *ok = ft_calloc(2147483647,45);
-
-    printf("%s\n",ok); 
-    char *oks = calloc(2147483647,45);
-    //ft_memset(oks,'a',10);
-
-    printf("%s",oks);
-    
-
-}*/
-
+    printf("%s",ft_strjoin(av[1],av[2]));
+}
+*/

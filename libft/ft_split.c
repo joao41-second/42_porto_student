@@ -6,7 +6,7 @@
 /*   By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 19:24:15 by jperpect          #+#    #+#             */
-/*   Updated: 2024/05/01 15:08:10 by jperpect         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:39:23 by jperpect         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,8 @@ char	**ft_split(char const *s, char c)
 {
 	int		n_p;
 	char	**ren;
-	int		i;
 
 	n_p = conta(s, c) + 1;
-	i = 0;
 	if (0 >= conta(s, c) && ft_strlen(s) == 0)
 		n_p = 0;
 	ren = (char **)malloc((n_p + 1) * sizeof(char *));

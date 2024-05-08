@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/03 06:17:31 by jperpect          #+#    #+#              #
+#    Updated: 2024/05/03 06:21:32 by jperpect         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FLGS = -Wall -Wextra -Werror
 
 NAME = libft.a
@@ -36,12 +48,10 @@ bonus: $(OBJECT_B) $(NAME)
 	ar rcs $(NAME) $^
 
 %.o:%.c libft.h
-	cc $(FLGS) -c -o $@ $<
+	cc -c $(FLGS) -o $@ $<
 
 clean:
 	$(RM)  $(OBJECT) $(OBJECT_B)
-
-
 
 fclean: clean
 	$(RM) $(NAME) 
